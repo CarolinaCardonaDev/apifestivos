@@ -1,0 +1,19 @@
+version: '3.7'
+
+networks:
+  api_festivos_network:
+    driver: bridge
+
+services:
+  postgres:
+    image: postgres:16
+    networks:
+      - api_festivos_network
+    container_name: festivos_db
+    restart: always
+    ports:
+      - "5434:5432"
+    environment:
+      POSTGRES_PASSWORD: f54S2TvfwcLZaz
+      POSTGRES_USER: postgres
+      POSTGRES_DB: api_festivos_db
